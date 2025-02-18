@@ -94,6 +94,3 @@ function toggleVisibility() {
         qrpage.classList.remove("vis_active");
     }
 }
-
-
-
