@@ -4,10 +4,13 @@ var back_btn = document.querySelector("#back_btn");
 var landingpage = document.querySelector("#qr_landingpage");
 var qrpage = document.querySelector("#qr_generatepage");
 var textfield = document.querySelector("#qrcode_textarea");
+var download_btn = document.querySelector("#dwnld_btn");
+var share_btn = document.querySelector("#shr_btn");
 
 /* Eventlistener */
 qr_submit_btn.addEventListener("click", generateQRCode);
 back_btn.addEventListener("click", backToLanding);
+download_btn.addEventListener("click", downloadQRImg);
 
 /* Functions */
 function generateQRCode() {
@@ -26,7 +29,21 @@ function backToLanding() {
     toggleVisibility();
 }
 
+function downloadQRImg() {
+    var qrContainer = document.getElementById("qrcode").getElementsByTagName("img")[0];
 
+    if (qrContainer) {
+        var imgURL = qrContainer.src;
+        var link = document.createElement("a");
+        link.href = imgURL;
+        link.download = "qrcode.png";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } else {
+        console.error("QR Code not found");
+    }
+}
 
 
 function toggleVisibility() {
