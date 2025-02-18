@@ -59,10 +59,20 @@ async function copyToClipboard() {
         try {
             var response = await fetch(qrContainer.src);
             var blob = await response.blob();
-            const clipBoardItem = new ClipboardItem({ "image/png" : blob })
+            const file = new File([blob], "qrcode.png", { type: "image/png" });
+            //const clipBoardItem = new ClipboardItem({ "image/png" : blob })
 
-            await navigator.clipboard.write([clipBoardItem]);
-            alert("QR Code copied successfully");
+            if (navigator.share) {
+                await navigator.share({
+                    files: [file],
+                    title: "My QR-Code",
+                    text: "Check this QR-Code!"
+                });
+            } else {
+                const clipBoardItem = new ClipboardItem({ "image/png" : blob });
+                await navigator.clipboard.write([clipBoardItem]);
+                alert("QR Code copied successfully");
+            }
         } catch (err) {
             console.error("Error while copying: ", err);
         }
