@@ -42,8 +42,7 @@ body {
     border-radius: 20px;
     background-color: #030616;
     max-width: 620px;
-    width: 100%;
-    
+    width: 100%; 
 }
 
 #qrcode_textarea {
@@ -160,4 +159,55 @@ body {
 }
 
 /* Media Queries */
+@media (max-width: 655px) {
+    /* QR Code Landing Page Styles */
+    #qr_landingpage {
+        justify-content: flex-start;
+        height: 100%;
+        margin-top: 80px;
+    }
 
+    #qrcode_container {
+        max-width: 620px;
+        min-width: 320px;
+        width: auto; 
+    }
+
+    #qr_submit_btn {
+        padding: 8px 20px 8px 20px;
+        width: none;
+        font-size: 16px;
+    }
+
+    /* QR Code Generator Page Styles */
+    #qr_generatepage {
+        gap: 32px;
+        height: 100%;
+        width: 100%;
+        margin: 32px 8px 0px 8px;
+    }
+
+    #qrcode_generate_btns {
+        gap: 16px;
+        width: 90%;
+    }
+
+    #back_btn {
+        width: 40%;
+    }
+}
+
+@media (max-width: 400px) {
+    /* QR Code Landing Page Styles */
+    #qrcode_container {
+        max-width: 620px;
+        min-width: 320px;
+        width: auto; 
+    }
+
+    #qr_submit_btn {
+        padding: 2px 5px 2px 5px;
+        width: none;
+        font-size: 16px;
+    }
+}
