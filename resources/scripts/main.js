@@ -11,17 +11,24 @@ var share_btn = document.querySelector("#shr_btn");
 qr_submit_btn.addEventListener("click", generateQRCode);
 back_btn.addEventListener("click", backToLanding);
 download_btn.addEventListener("click", downloadQRImg);
+share_btn.addEventListener("click", copyToClipboard);
 
 /* Functions */
 function generateQRCode() {
-    var qrContainer = document.getElementById("qrcode");
-    qrContainer.innerHTML = "";
-    const qrCode = new QRCode(document.getElementById("qrcode"), {
+    if (textfield.value != "") {
+        var qrContainer = document.getElementById("qrcode");
+        qrContainer.innerHTML = "";
+
+        const qrCode = new QRCode(document.getElementById("qrcode"), {
         text: textfield.value,
         width: 178,
         height: 178,
-      });
-    toggleVisibility();
+        });
+        toggleVisibility();
+    } else {
+        alert("Please enter something in the textfield!");
+    }
+    
 }
 
 function backToLanding() {
@@ -45,6 +52,24 @@ function downloadQRImg() {
     }
 }
 
+async function copyToClipboard() {
+    var qrContainer = document.getElementById("qrcode").getElementsByTagName("img")[0];
+
+    if (qrContainer) {
+        try {
+            var response = await fetch(qrContainer.src);
+            var blob = await response.blob();
+            const clipBoardItem = new ClipboardItem({ "image/png" : blob })
+
+            await navigator.clipboard.write([clipBoardItem]);
+            alert("QR Code copied successfully");
+        } catch (err) {
+            console.error("Error while copying: ", err);
+        }
+    } else {
+        console.error("QR Code not found");
+    }
+}
 
 function toggleVisibility() {
     if (landingpage.classList.contains("vis_active")) {
