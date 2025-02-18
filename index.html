@@ -8,7 +8,7 @@
     <title>QR-Code Generator</title>
 </head>
 <body>
-    <div id="qr_landingpage">
+    <div id="qr_landingpage" class="vis_active">
         <div id="qrcode_header">
             <img src="resources/icons/Logo.svg" alt="QR Code Generator Logo" id="qrcode_header_img">
         </div>
@@ -17,7 +17,7 @@
             <button value="submit" id="qr_submit_btn">QR Code</button>
         </div>
     </div>
-    <div id="qr_generatepage">
+    <div id="qr_generatepage" class="vis_inactive">
         <img src="resources/icons/Logo-small.svg" alt="QR Code Generator Logo small" id="qrcode_generate_img">
         <div id="qrcode_generate_container">
             <div id="qrcode_bckgrnd">
@@ -37,6 +37,11 @@
             <button value="Share" class="qr_generate_btn">
                 <p>Share</p>
                 <img src="resources/icons/link_alt.svg" alt="">
+            </button>
+        </div>
+        <div id="bck_btn_cntr">
+            <button id="back_btn" class="qr_generate_btn">
+                <p>Back</p>
             </button>
         </div>
     </div>

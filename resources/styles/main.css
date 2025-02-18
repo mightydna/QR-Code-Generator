@@ -140,5 +140,24 @@ body {
     cursor: pointer;
 }
 
+#bck_btn_cntr {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#back_btn {
+    width: 15%;
+}
+
+/* Visibility Toggle */
+.vis_inactive {
+    display: none !important;
+}
+
+.vis_active {
+    display: flex !important;
+}
+
 /* Media Queries */
 
