@@ -21,6 +21,7 @@ body {
     background-image: url(../images/qa-bg.jpg);
 }
 
+/* QR Code Landing Page Styles */
 #qr_landingpage {
     display: flex;
     flex-direction: column;
@@ -46,7 +47,7 @@ body {
 }
 
 #qrcode_textarea {
-    background-color: black;
+    background-color: #030616;
     border: none;
     color: white;
     resize: none;
@@ -75,12 +76,69 @@ body {
     cursor: pointer;
 }
 
-/* QR Code Landing Page Styles */
-
-
 /* QR Code Generator Page Styles */
+#qr_generatepage {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 64px;
+    height: 100vh;
+    width: 100%;
+    margin: 32px 72px 0px 72px;
+}
 
+#qrcode_generate_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 306px;
+    width: 306px;
+    position: relative;
 
+}
+
+#qrcode_bckgrnd {
+    height: 306px;
+    width: 306px;
+    position: absolute;
+    border-radius: 180px;
+    background-color: #F8FAFC1A;
+}
+
+#qrcode_shell {
+    height: 242px;
+    width: 242px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F2F5F9;
+    border-radius: 12px;
+}
+
+#qrcode_generate_btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.qr_generate_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    background-color: #263FA9;
+    color: white;
+    font-family: 'Outfit';
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    width: 100%;
+    cursor: pointer;
+}
 
 /* Media Queries */
 
